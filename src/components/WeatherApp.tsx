@@ -78,7 +78,7 @@ export const WeatherApp: React.FC = () => {
           </p>
           <button
             onClick={() => fetchWeather(location)}
-            className="px-6 py-2 bg-green-500 text-black rounded-lg hover:bg-green-400 transition-colors font-medium"
+            className="px-6 py-2 bg-green-500 text-black rounded-lg hover:bg-green-400 transition-colors font-medium cursor-pointer"
           >
             Try Again
           </button>
@@ -112,7 +112,7 @@ export const WeatherApp: React.FC = () => {
               onClick={handleRefresh}
               disabled={refreshing}
               title="Refresh weather data"
-              className="bg-gray-800/50 backdrop-blur-sm rounded-full p-3 hover:bg-gray-700/50 transition-colors disabled:opacity-50 border border-gray-700"
+              className="bg-gray-800/50 backdrop-blur-sm rounded-full p-3 hover:bg-gray-700/50 transition-colors disabled:opacity-50 border border-gray-700 cursor-pointer disabled:cursor-not-allowed"
             >
               <RefreshCw className={`w-5 h-5 text-gray-300 ${refreshing ? 'animate-spin' : ''}`} />
             </button>
@@ -125,7 +125,7 @@ export const WeatherApp: React.FC = () => {
           <div className="flex items-center gap-4 justify-between">
             <button
               onClick={toggleUnit}
-              className="flex items-center gap-2 bg-gray-800/50 backdrop-blur-sm rounded-xl px-4 py-2 hover:bg-gray-700/50 transition-colors border border-gray-700"
+              className="flex items-center gap-2 bg-gray-800/50 backdrop-blur-sm rounded-xl px-4 py-2 hover:bg-gray-700/50 transition-colors border border-gray-700 cursor-pointer"
             >
               <span className={unit === 'celsius' ? 'font-medium text-green-400' : 'text-gray-400'}>°C</span>
               {unit === 'celsius' ? (
