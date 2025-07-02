@@ -57,7 +57,13 @@ export const formatDate = (dateString: string): string => {
 
 export const getWindDirection = (degrees: string): string => {
   const directions = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
-  const index = Math.round(parseInt(degrees) / 22.5) % 16;
+  // Convert to number and normalize to 0-360 degrees
+  let deg = parseInt(degrees);
+  // Handle negative degrees by adding 360 until positive
+  while (deg < 0) {
+    deg += 360;
+  }
+  const index = Math.round(deg / 22.5) % 16;
   return directions[index];
 };
 
