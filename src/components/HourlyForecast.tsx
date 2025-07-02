@@ -46,7 +46,7 @@ export const HourlyForecast: React.FC<HourlyForecastProps> = ({ weather, unit })
               </div>
               <IconComponent className="w-8 h-8 text-green-400 mb-2" />
               <div className="text-lg font-medium text-white">
-                {Math.round(temp)}°C
+                {Math.round(temp)}°{unit === 'celsius' ? 'C' : 'F'}
               </div>
             </div>
           );

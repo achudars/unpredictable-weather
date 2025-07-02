@@ -36,7 +36,7 @@ export const WeatherCard: React.FC<WeatherCardProps> = ({ weather, unit }) => {
 
       <div className="flex items-center justify-between relative z-10">
         <div>
-          <div className="text-6xl font-light mb-2 text-white">{Math.round(temp)}°C</div>
+          <div className="text-6xl font-light mb-2 text-white">{Math.round(temp)}{unitSymbol}</div>
           <div className="text-gray-400 text-lg mb-1">
             Feels like {Math.round(feelsLike)}{unitSymbol}
           </div>

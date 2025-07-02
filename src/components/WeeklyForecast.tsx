@@ -41,10 +41,10 @@ export const WeeklyForecast: React.FC<WeeklyForecastProps> = ({ weather, unit })
               <div className="flex items-center gap-4">
                 <div className="text-right">
                   <div className="text-lg font-medium text-white">
-                    {Math.round(maxTemp)}°
+                    {Math.round(maxTemp)}°{unit === 'celsius' ? 'C' : 'F'}
                   </div>
                   <div className="text-sm text-gray-400">
-                    {Math.round(minTemp)}°
+                    {Math.round(minTemp)}°{unit === 'celsius' ? 'C' : 'F'}
                   </div>
                 </div>
               </div>
