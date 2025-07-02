@@ -1,5 +1,7 @@
 # 🌤️ Unpredictable Weather
 
+![Weather Forecast App](./Weather%20Forecast%20App.png)
+
 A modern, responsive weather application built with Next.js, TypeScript, and Tailwind CSS. Get current weather conditions and 7-day forecasts for any location worldwide.
 
 ## ✨ Features
@@ -79,15 +81,17 @@ The free tier includes:
 - **[WeatherAPI](https://www.weatherapi.com/)** - Weather data
 - **[Axios](https://axios-http.com/)** - HTTP requests
 
-## 📱 Screenshots
+## 📱 App Preview
 
-The app features a clean, modern design with:
+The app features a sleek, dark modern design with:
 
-- Gradient weather cards
-- Interactive location search
-- Smooth animations and transitions
-- Responsive grid layouts
-- Intuitive weather icons
+- **Dark Theme**: Deep black backgrounds with green accent colors
+- **Mobile-First Design**: Optimized for mobile devices with clean layouts
+- **Interactive Elements**: Smooth hover effects and transitions
+- **Modern Typography**: Clean, readable fonts with proper contrast
+- **Weather Icons**: Intuitive icons for different weather conditions
+- **Glassmorphism Effects**: Subtle backdrop blur and transparency
+- **Responsive Grid Layouts**: Perfectly organized information display
 
 ## 🎯 Usage
 
