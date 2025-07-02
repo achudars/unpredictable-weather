@@ -14,7 +14,7 @@ export const WeeklyForecast: React.FC<WeeklyForecastProps> = ({ weather, unit })
     <div className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-800">
       <h3 className="text-lg font-medium text-white mb-4">Next 7 Days</h3>
       <div className="space-y-4">
-        {weather.forecast.forecastday.map((day) => {
+        {weather.forecast.forecastday.slice(0, 7).map((day) => {
           const IconComponent = getWeatherIcon(day.day.condition.code, isDay());
           const maxTemp = unit === 'celsius' ? day.day.maxtemp_c : day.day.maxtemp_f;
           const minTemp = unit === 'celsius' ? day.day.mintemp_c : day.day.mintemp_f;
