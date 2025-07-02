@@ -47,7 +47,7 @@ export const WeatherDetails: React.FC<WeatherDetailsProps> = ({ weather }) => {
 
   return (
     <div className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-800">
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+      <div className="grid grid-cols-2 gap-6">
         {details.map((detail) => {
           const IconComponent = detail.icon;
           return (
