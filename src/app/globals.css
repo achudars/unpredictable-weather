@@ -1,26 +1,121 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --card-bg: #1a1a1a;
+  --accent-green: #00ff87;
+  --text-muted: #888888;
+  --border-color: #333333;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Green accent classes */
+.green-accent {
+  color: var(--accent-green);
+}
+
+.bg-green-accent {
+  background-color: var(--accent-green);
+}
+
+/* Abstract wave animation */
+@keyframes wave {
+  0% { transform: rotate(0deg) scale(1); }
+  33% { transform: rotate(120deg) scale(1.1); }
+  66% { transform: rotate(240deg) scale(0.9); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.wave-animation {
+  animation: wave 20s infinite linear;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Pulsing animation for loading states */
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.pulse-green {
+  animation: pulse-green 2s infinite;
+}
+
+/* Subtle glow effect */
+.glow-green {
+  box-shadow: 0 0 20px rgba(0, 255, 135, 0.1);
+}
+
+/* Backdrop blur utility */
+.backdrop-blur-custom {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+/* Custom gradient backgrounds */
+.bg-gradient-dark {
+  background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(26, 26, 26, 0.8) 50%, rgba(15, 15, 15, 0.9) 100%);
+}
+
+/* Smooth hover transitions */
+.hover-lift {
+  transition: transform 0.2s ease-in-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* Weather icon animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Green accent glow */
+.text-green-glow {
+  color: #00ff87;
+  text-shadow: 0 0 10px rgba(0, 255, 135, 0.3);
 }
