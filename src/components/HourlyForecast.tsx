@@ -37,7 +37,7 @@ type DayData = {
   };
 };
 
-type ForecastItem = HourData | DayData;
+
 
 export const HourlyForecast: React.FC<HourlyForecastProps> = ({ weather, unit }) => {
   const [activeTab, setActiveTab] = useState<ForecastTab>('today');
@@ -66,9 +66,10 @@ export const HourlyForecast: React.FC<HourlyForecastProps> = ({ weather, unit })
     }
   };
 
-  const getTimeLabel = (item: any, index: number) => {
+  const getTimeLabel = (item: HourData | DayData, index: number) => {
     if (activeTab === 'weekly') {
-      const date = new Date(item.date);
+      const dayItem = item as DayData;
+      const date = new Date(dayItem.date);
       const today = new Date();
       const tomorrow = new Date(today);
       tomorrow.setDate(tomorrow.getDate() + 1);
@@ -85,24 +86,29 @@ export const HourlyForecast: React.FC<HourlyForecastProps> = ({ weather, unit })
       return 'Now';
     }
     
-    return formatTime(item.time);
+    const hourItem = item as HourData;
+    return formatTime(hourItem.time);
   };
 
-  const getTemperature = (item: any) => {
+  const getTemperature = (item: HourData | DayData) => {
     if (activeTab === 'weekly') {
-      const maxTemp = unit === 'celsius' ? item.day.maxtemp_c : item.day.maxtemp_f;
+      const dayItem = item as DayData;
+      const maxTemp = unit === 'celsius' ? dayItem.day.maxtemp_c : dayItem.day.maxtemp_f;
       return Math.round(maxTemp);
     }
     
-    const temp = unit === 'celsius' ? item.temp_c : item.temp_f;
+    const hourItem = item as HourData;
+    const temp = unit === 'celsius' ? hourItem.temp_c : hourItem.temp_f;
     return Math.round(temp);
   };
 
-  const getWeatherCondition = (item: any) => {
+  const getWeatherCondition = (item: HourData | DayData) => {
     if (activeTab === 'weekly') {
-      return item.day.condition;
+      const dayItem = item as DayData;
+      return dayItem.day.condition;
     }
-    return item.condition;
+    const hourItem = item as HourData;
+    return hourItem.condition;
   };
 
   const getTabTitle = () => {
@@ -111,16 +117,19 @@ export const HourlyForecast: React.FC<HourlyForecastProps> = ({ weather, unit })
     return 'Next 7 Days';
   };
 
-  const getItemKey = (item: any) => {
+  const getItemKey = (item: HourData | DayData) => {
     if (activeTab === 'weekly') {
-      return item.date;
+      const dayItem = item as DayData;
+      return dayItem.date;
     }
-    return item.time;
+    const hourItem = item as HourData;
+    return hourItem.time;
   };
 
-  const getMinTemp = (item: any) => {
+  const getMinTemp = (item: HourData | DayData) => {
     if (activeTab === 'weekly') {
-      return Math.round(unit === 'celsius' ? item.day.mintemp_c : item.day.mintemp_f);
+      const dayItem = item as DayData;
+      return Math.round(unit === 'celsius' ? dayItem.day.mintemp_c : dayItem.day.mintemp_f);
     }
     return null;
   };
