@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { WeatherData } from '@/types/weather';
-import { weatherService } from '@/services/weatherService';
+import { weatherService, isDemoMode } from '@/services/weatherService';
 import { WeatherCard } from '@/components/WeatherCard';
 import { HourlyForecast } from '@/components/HourlyForecast';
 import { WeatherDetails } from '@/components/WeatherDetails';
@@ -66,9 +66,9 @@ export const WeatherApp: React.FC = () => {
           <p className="text-gray-300 mb-4">{error}</p>
           <p className="text-sm text-gray-500 mb-4">
             Please get a free API key from{' '}
-            <a 
-              href="https://www.weatherapi.com/" 
-              target="_blank" 
+            <a
+              href="https://www.weatherapi.com/"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-green-400 hover:underline"
             >
@@ -98,8 +98,18 @@ export const WeatherApp: React.FC = () => {
         <div className="absolute top-1/4 left-1/4 w-96 h-96 border border-green-400 rounded-full wave-animation"></div>
         <div className="absolute top-1/2 right-1/4 w-64 h-64 border border-green-400 rounded-full wave-animation [animation-delay:5s]"></div>
       </div>
-      
+
       <div className="container mx-auto px-6 py-8 max-w-sm md:max-w-md relative z-10">
+        {/* Demo mode banner */}
+        {isDemoMode && (
+          <div className="mb-4 px-4 py-2 bg-yellow-500/10 border border-yellow-500/40 rounded-xl text-center">
+            <p className="text-yellow-400 text-xs">
+              Demo mode &mdash; add{' '}
+              <code className="font-mono">NEXT_PUBLIC_WEATHER_API_KEY</code>{' '}to{' '}
+              <code className="font-mono">.env.local</code>{' '}for live data
+            </p>
+          </div>
+        )}
         {/* Header */}
         <div className="flex flex-col gap-6 mb-8">
           <div className="flex justify-between items-center">
@@ -117,11 +127,11 @@ export const WeatherApp: React.FC = () => {
               <RefreshCw className={`w-5 h-5 text-gray-300 ${refreshing ? 'animate-spin' : ''}`} />
             </button>
           </div>
-          
+
           <div className="w-full max-w-md">
             <LocationSearch onLocationSelect={fetchWeather} />
           </div>
-          
+
           <div className="flex items-center gap-4 justify-between">
             <button
               onClick={toggleUnit}
