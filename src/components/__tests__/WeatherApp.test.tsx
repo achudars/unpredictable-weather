@@ -94,7 +94,7 @@ describe('WeatherApp', () => {
 
   it('renders loading state initially', () => {
     render(<WeatherApp />);
-    
+
     expect(screen.getByText('Loading weather data...')).toBeInTheDocument();
     expect(screen.getByTestId('refresh-icon')).toHaveClass('animate-spin');
   });
@@ -246,7 +246,7 @@ describe('WeatherApp', () => {
     }, { timeout: 3000 });
 
     const refreshButton = screen.getByTitle('Refresh weather data');
-    
+
     // Verify button exists and is clickable
     expect(refreshButton).toBeInTheDocument();
     expect(refreshButton).not.toBeDisabled();
