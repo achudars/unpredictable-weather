@@ -7,6 +7,7 @@ import { mockWeatherData } from '@/test/mocks';
 
 // Mock the weather service
 vi.mock('@/services/weatherService', () => ({
+  isDemoMode: true,
   weatherService: {
     getCurrentWeather: vi.fn(),
   },
